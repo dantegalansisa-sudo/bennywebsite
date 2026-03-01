@@ -25,7 +25,7 @@ export default function CEOSection() {
             <div className="relative gradient-border rounded-2xl overflow-hidden">
               <div className="relative w-full aspect-[3/4] max-w-[400px] mx-auto bg-gradient-to-br from-steel to-deep flex items-center justify-center overflow-hidden">
                 <Image
-                  src="/images/ceo.png"
+                  src="/images/ceo.jpg"
                   alt="Benny Céspedes — Fundador de BC Clima"
                   fill
                   className="object-cover"
