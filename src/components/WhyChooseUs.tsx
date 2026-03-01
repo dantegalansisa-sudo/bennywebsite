@@ -39,21 +39,18 @@ const reasons: Reason[] = [
 
 export default function WhyChooseUs() {
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-void to-deep/50" />
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-frost/[0.02] rounded-full blur-[120px]" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="bg-bg-alt py-28 lg:py-36">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-frost mb-4">
+          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-sky-500 mb-4">
             ¿Por qué elegirnos?
           </p>
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-white font-[var(--font-syne)] tracking-tight">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-sky-900 font-[var(--font-syne)] tracking-tight">
             La Diferencia BC Clima
           </h2>
         </motion.div>
@@ -64,20 +61,20 @@ export default function WhyChooseUs() {
             return (
               <motion.div
                 key={i}
-                className="group glass rounded-2xl p-7 hover:bg-white/[0.06] transition-all duration-500 gradient-border text-center"
+                className="bg-white rounded-2xl p-7 card-shadow text-center border border-sky-100/50"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 whileHover={{ y: -6 }}
               >
-                <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-frost/10 flex items-center justify-center group-hover:bg-frost/15 group-hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all duration-500">
-                  <Icon className="w-7 h-7 text-frost" />
+                <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-sky-100 flex items-center justify-center">
+                  <Icon className="w-7 h-7 text-sky-500" />
                 </div>
-                <h3 className="text-lg font-bold text-white font-[var(--font-syne)] mb-3 tracking-tight">
+                <h3 className="text-lg font-bold text-sky-900 font-[var(--font-syne)] mb-3 tracking-tight">
                   {r.title}
                 </h3>
-                <p className="text-mist text-sm leading-relaxed">
+                <p className="text-gray-text text-sm leading-relaxed">
                   {r.description}
                 </p>
               </motion.div>

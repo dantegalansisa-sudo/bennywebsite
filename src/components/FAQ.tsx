@@ -31,20 +31,18 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   return (
-    <section className="relative py-28 lg:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-deep/30" />
-
-      <div className="relative z-10 max-w-3xl mx-auto px-6 lg:px-8">
+    <section className="bg-white py-28 lg:py-36">
+      <div className="max-w-3xl mx-auto px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-frost mb-4">
+          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-sky-500 mb-4">
             Preguntas Frecuentes
           </p>
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-white font-[var(--font-syne)] tracking-tight">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-sky-900 font-[var(--font-syne)] tracking-tight">
             ¿Tienes Dudas?
           </h2>
         </motion.div>
@@ -53,7 +51,7 @@ export default function FAQ() {
           {faqs.map((faq, i) => (
             <motion.div
               key={i}
-              className="glass rounded-xl overflow-hidden gradient-border"
+              className="border border-sky-100 rounded-xl overflow-hidden"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -61,13 +59,13 @@ export default function FAQ() {
             >
               <button
                 onClick={() => setOpenIndex(openIndex === i ? null : i)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-white/[0.03] transition-colors duration-300"
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-sky-50/50 transition-colors duration-300"
               >
-                <span className="font-semibold text-ghost pr-4 font-[var(--font-syne)]">
+                <span className="font-semibold text-sky-900 pr-4 font-[var(--font-syne)]">
                   {faq.q}
                 </span>
                 <ChevronDown
-                  className={`w-5 h-5 text-frost flex-shrink-0 transition-transform duration-300 ${
+                  className={`w-5 h-5 text-sky-500 flex-shrink-0 transition-transform duration-300 ${
                     openIndex === i ? "rotate-180" : ""
                   }`}
                 />
@@ -81,7 +79,7 @@ export default function FAQ() {
                     transition={{ duration: 0.3 }}
                     className="overflow-hidden"
                   >
-                    <p className="px-6 pb-6 text-mist leading-relaxed">
+                    <p className="px-6 pb-6 text-gray-text leading-relaxed">
                       {faq.a}
                     </p>
                   </motion.div>

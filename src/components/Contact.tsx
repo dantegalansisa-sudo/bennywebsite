@@ -32,21 +32,18 @@ const contactInfo = [
 
 export default function Contact() {
   return (
-    <section id="contacto" className="relative py-28 lg:py-36 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-deep/30 to-void" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-frost/[0.03] rounded-full blur-[120px]" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+    <section id="contacto" className="bg-bg-alt py-28 lg:py-36">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-frost mb-4">
+          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-sky-500 mb-4">
             Contacto
           </p>
-          <h2 className="text-3xl lg:text-5xl font-extrabold text-white font-[var(--font-syne)] tracking-tight">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-sky-900 font-[var(--font-syne)] tracking-tight">
             Contáctanos
           </h2>
         </motion.div>
@@ -57,7 +54,7 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="glass-strong rounded-2xl p-10 gradient-border space-y-7">
+          <div className="bg-white rounded-2xl p-10 shadow-sm border border-sky-100/50 space-y-7">
             {contactInfo.map((item, i) => {
               const Icon = item.icon;
               const ContentWrapper = item.href ? "a" : "div";
@@ -72,16 +69,16 @@ export default function Contact() {
 
               return (
                 <div key={i} className="flex items-start gap-4 group">
-                  <div className="w-10 h-10 rounded-xl bg-frost/10 flex items-center justify-center flex-shrink-0 group-hover:bg-frost/15 transition-colors duration-300">
-                    <Icon className="w-5 h-5 text-frost" />
+                  <div className="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center flex-shrink-0">
+                    <Icon className="w-5 h-5 text-sky-500" />
                   </div>
                   <div>
-                    <p className="font-semibold text-white font-[var(--font-syne)] text-sm">
+                    <p className="font-semibold text-sky-900 font-[var(--font-syne)] text-sm">
                       {item.title}
                     </p>
                     <ContentWrapper
                       {...linkProps}
-                      className="text-mist hover:text-frost transition-colors duration-300"
+                      className="text-gray-text hover:text-sky-500 transition-colors duration-300"
                     >
                       {item.content}
                     </ContentWrapper>
@@ -91,17 +88,17 @@ export default function Contact() {
             })}
 
             {/* Hours */}
-            <div className="flex items-start gap-4 group">
-              <div className="w-10 h-10 rounded-xl bg-frost/10 flex items-center justify-center flex-shrink-0">
-                <Clock className="w-5 h-5 text-frost" />
+            <div className="flex items-start gap-4">
+              <div className="w-10 h-10 rounded-xl bg-sky-100 flex items-center justify-center flex-shrink-0">
+                <Clock className="w-5 h-5 text-sky-500" />
               </div>
               <div>
-                <p className="font-semibold text-white font-[var(--font-syne)] text-sm">
+                <p className="font-semibold text-sky-900 font-[var(--font-syne)] text-sm">
                   Horario
                 </p>
-                <p className="text-mist">Lun-Vie 8:00 AM - 6:00 PM</p>
-                <p className="text-mist">Sáb 8:00 AM - 1:00 PM</p>
-                <p className="text-ember text-sm font-medium mt-1">
+                <p className="text-gray-text">Lun-Vie 8:00 AM - 6:00 PM</p>
+                <p className="text-gray-text">Sáb 8:00 AM - 1:00 PM</p>
+                <p className="text-orange-500 text-sm font-medium mt-1">
                   Emergencias 24/7 para clientes activos
                 </p>
               </div>
@@ -113,7 +110,7 @@ export default function Contact() {
                 href="https://wa.me/18097429060?text=Hola%2C%20necesito%20una%20cotizaci%C3%B3n%20para%20aire%20acondicionado%20en%20Santiago."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 bg-wa-green hover:bg-wa-hover text-white font-semibold py-4 rounded-xl transition-all duration-300 text-lg hover:shadow-[0_0_30px_rgba(37,211,102,0.25)]"
+                className="w-full flex items-center justify-center gap-3 bg-wa-green hover:bg-wa-hover text-white font-semibold py-4 rounded-xl transition-all duration-300 text-lg hover:shadow-[0_4px_15px_rgba(37,211,102,0.3)]"
               >
                 <svg
                   className="w-6 h-6"

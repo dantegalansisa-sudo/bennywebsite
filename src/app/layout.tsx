@@ -36,7 +36,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es">
-      <body className={`${syne.variable} ${figtree.variable} antialiased noise`}>
+      <body className={`${syne.variable} ${figtree.variable} antialiased`}>
         {children}
       </body>
     </html>

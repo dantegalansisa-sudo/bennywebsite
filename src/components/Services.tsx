@@ -87,7 +87,7 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section id="servicios" className="relative">
+    <section id="servicios">
       {services.map((service, i) => {
         const isEven = i % 2 === 1;
         const Icon = service.icon;
@@ -95,31 +95,22 @@ export default function Services() {
         return (
           <div
             key={i}
-            className={`relative py-28 lg:py-36 overflow-hidden ${
-              isEven ? "bg-deep/50" : ""
-            }`}
+            className={`py-28 lg:py-36 ${isEven ? "bg-bg-alt" : "bg-white"}`}
           >
-            {/* Ambient glow */}
-            <div
-              className={`absolute w-[500px] h-[500px] bg-frost/[0.03] rounded-full blur-[120px] ${
-                isEven ? "top-0 right-0" : "bottom-0 left-0"
-              }`}
-            />
-
-            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
               <motion.div
                 className={`flex flex-col ${
                   isEven ? "lg:flex-row-reverse" : "lg:flex-row"
                 } items-center gap-16`}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.7 }}
               >
                 {/* Image */}
                 <div className="lg:w-1/2">
-                  <div className="relative gradient-border rounded-2xl overflow-hidden">
-                    <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-steel to-deep flex items-center justify-center overflow-hidden">
+                  <div className="relative rounded-2xl overflow-hidden shadow-lg">
+                    <div className="relative w-full aspect-[4/3] bg-gradient-to-br from-[#EBF5FF] to-[#F0F9FF] flex items-center justify-center overflow-hidden">
                       <Image
                         src={service.image}
                         alt={service.imageAlt}
@@ -129,37 +120,37 @@ export default function Services() {
                           (e.target as HTMLImageElement).style.display = "none";
                         }}
                       />
-                      <Icon className="w-20 h-20 text-frost/20" />
+                      <Icon className="w-20 h-20 text-sky-300/50" />
                     </div>
                   </div>
                 </div>
 
                 {/* Text */}
                 <div className="lg:w-1/2 space-y-6">
-                  <div className="inline-flex items-center gap-2 bg-frost/10 text-frost px-3 py-1.5 rounded-full text-sm font-medium border border-frost/15">
+                  <div className="inline-flex items-center gap-2 bg-sky-100 text-sky-600 px-3 py-1.5 rounded-full text-sm font-medium">
                     <Icon className="w-4 h-4" />
                     Servicio
                   </div>
 
-                  <h3 className="text-3xl lg:text-4xl font-bold text-white font-[var(--font-syne)] tracking-tight">
+                  <h3 className="text-3xl lg:text-4xl font-bold text-sky-900 font-[var(--font-syne)] tracking-tight">
                     {service.title}
                   </h3>
 
-                  <p className="text-mist leading-relaxed">
+                  <p className="text-gray-text leading-relaxed">
                     {service.description}
                   </p>
 
                   <div>
-                    <p className="font-semibold text-ghost mb-3">
+                    <p className="font-semibold text-gray-dark mb-3">
                       {service.listTitle}
                     </p>
                     <ul className="space-y-2.5">
                       {service.items.map((item, j) => (
                         <li
                           key={j}
-                          className="flex items-start gap-3 text-mist"
+                          className="flex items-start gap-3 text-gray-text"
                         >
-                          <CheckCircle className="w-5 h-5 text-mint flex-shrink-0 mt-0.5" />
+                          <CheckCircle className="w-5 h-5 text-green flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}
@@ -170,10 +161,10 @@ export default function Services() {
                     href="https://wa.me/18097429060?text=Hola%2C%20necesito%20una%20cotizaci%C3%B3n%20para%20aire%20acondicionado%20en%20Santiago."
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-frost/10 hover:bg-frost/20 text-frost font-semibold px-6 py-3 rounded-xl transition-all duration-300 border border-frost/20 hover:border-frost/40 hover:shadow-[0_0_20px_rgba(0,212,255,0.15)]"
+                    className="inline-flex items-center gap-2 bg-sky-500 hover:bg-sky-600 text-white font-semibold px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-[0_4px_15px_rgba(14,165,233,0.3)]"
                   >
                     {service.button}
-                    <span className="text-frost/60">→</span>
+                    <span className="text-white/70">→</span>
                   </a>
                 </div>
               </motion.div>
