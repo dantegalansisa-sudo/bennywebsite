@@ -21,7 +21,7 @@ const reasons: Reason[] = [
     icon: Clock,
     title: "Respuesta Rápida",
     description:
-      "Respondemos tu cotización en menos de 1 hora y agendamos la visita en menos de 24 horas en Santiago.",
+      "Respondemos tu cotización en menos de 1 hora y agendamos la visita en menos de 24 horas.",
   },
   {
     icon: BadgeDollarSign,
@@ -33,47 +33,51 @@ const reasons: Reason[] = [
     icon: Star,
     title: "Técnicos Certificados",
     description:
-      "Personal capacitado y con experiencia. Conocemos todas las marcas y tipos de sistemas de climatización.",
+      "Personal capacitado con experiencia. Conocemos todas las marcas y sistemas de climatización.",
   },
 ];
 
 export default function WhyChooseUs() {
   return (
-    <section className="bg-sky-light py-28 lg:py-36">
-      <div className="max-w-6xl mx-auto px-8">
+    <section className="relative py-28 lg:py-36 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-void to-deep/50" />
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] bg-frost/[0.02] rounded-full blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="uppercase tracking-widest text-sm font-semibold text-sky-600 mb-4">
+          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-frost mb-4">
             ¿Por qué elegirnos?
           </p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-sky-900 font-[var(--font-outfit)]">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-white font-[var(--font-syne)] tracking-tight">
             La Diferencia BC Clima
           </h2>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-10">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {reasons.map((r, i) => {
             const Icon = r.icon;
             return (
               <motion.div
                 key={i}
-                className="bg-white rounded-2xl p-8 shadow-sm"
+                className="group glass rounded-2xl p-7 hover:bg-white/[0.06] transition-all duration-500 gradient-border text-center"
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -6 }}
               >
-                <div className="w-14 h-14 bg-sky-100 rounded-xl flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-sky-600" />
+                <div className="w-14 h-14 mx-auto mb-5 rounded-2xl bg-frost/10 flex items-center justify-center group-hover:bg-frost/15 group-hover:shadow-[0_0_20px_rgba(0,212,255,0.15)] transition-all duration-500">
+                  <Icon className="w-7 h-7 text-frost" />
                 </div>
-                <h3 className="text-xl font-bold text-sky-900 font-[var(--font-outfit)] mb-3">
+                <h3 className="text-lg font-bold text-white font-[var(--font-syne)] mb-3 tracking-tight">
                   {r.title}
                 </h3>
-                <p className="text-gray-text leading-relaxed">
+                <p className="text-mist text-sm leading-relaxed">
                   {r.description}
                 </p>
               </motion.div>

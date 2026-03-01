@@ -3,20 +3,50 @@
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, Instagram } from "lucide-react";
 
+const contactInfo = [
+  {
+    icon: MapPin,
+    title: "Ubicación",
+    content: "Santiago, República Dominicana",
+  },
+  {
+    icon: Phone,
+    title: "Teléfono / WhatsApp",
+    content: "809-742-9060",
+    href: "tel:8097429060",
+  },
+  {
+    icon: Instagram,
+    title: "Instagram",
+    content: "@bennycespedes23",
+    href: "https://instagram.com/bennycespedes23",
+    external: true,
+  },
+  {
+    icon: Mail,
+    title: "Email",
+    content: "info@bcclima.com",
+    href: "mailto:info@bcclima.com",
+  },
+];
+
 export default function Contact() {
   return (
-    <section id="contacto" className="bg-sky-light py-28 lg:py-36">
-      <div className="max-w-6xl mx-auto px-8">
+    <section id="contacto" className="relative py-28 lg:py-36 overflow-hidden">
+      <div className="absolute inset-0 bg-gradient-to-b from-deep/30 to-void" />
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-frost/[0.03] rounded-full blur-[120px]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <p className="uppercase tracking-widest text-sm font-semibold text-sky-600 mb-4">
+          <p className="uppercase tracking-[0.2em] text-sm font-semibold text-frost mb-4">
             Contacto
           </p>
-          <h2 className="text-3xl lg:text-4xl font-bold text-sky-900 font-[var(--font-outfit)]">
+          <h2 className="text-3xl lg:text-5xl font-extrabold text-white font-[var(--font-syne)] tracking-tight">
             Contáctanos
           </h2>
         </motion.div>
@@ -27,74 +57,63 @@ export default function Contact() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="bg-white rounded-2xl p-10 shadow-sm space-y-6">
-            <div className="flex items-start gap-4">
-              <MapPin className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="font-semibold text-sky-900">Ubicación</p>
-                <p className="text-gray-text">Santiago, República Dominicana</p>
-              </div>
-            </div>
+          <div className="glass-strong rounded-2xl p-10 gradient-border space-y-7">
+            {contactInfo.map((item, i) => {
+              const Icon = item.icon;
+              const ContentWrapper = item.href ? "a" : "div";
+              const linkProps = item.href
+                ? {
+                    href: item.href,
+                    ...(item.external
+                      ? { target: "_blank", rel: "noopener noreferrer" }
+                      : {}),
+                  }
+                : {};
 
-            <div className="flex items-start gap-4">
-              <Phone className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="font-semibold text-sky-900">Teléfono / WhatsApp</p>
-                <a
-                  href="tel:8097429060"
-                  className="text-gray-text hover:text-sky-600 transition-colors"
-                >
-                  809-742-9060
-                </a>
-              </div>
-            </div>
+              return (
+                <div key={i} className="flex items-start gap-4 group">
+                  <div className="w-10 h-10 rounded-xl bg-frost/10 flex items-center justify-center flex-shrink-0 group-hover:bg-frost/15 transition-colors duration-300">
+                    <Icon className="w-5 h-5 text-frost" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-white font-[var(--font-syne)] text-sm">
+                      {item.title}
+                    </p>
+                    <ContentWrapper
+                      {...linkProps}
+                      className="text-mist hover:text-frost transition-colors duration-300"
+                    >
+                      {item.content}
+                    </ContentWrapper>
+                  </div>
+                </div>
+              );
+            })}
 
-            <div className="flex items-start gap-4">
-              <Instagram className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="font-semibold text-sky-900">Instagram</p>
-                <a
-                  href="https://instagram.com/bennycespedes23"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-text hover:text-sky-600 transition-colors"
-                >
-                  @bennycespedes23
-                </a>
+            {/* Hours */}
+            <div className="flex items-start gap-4 group">
+              <div className="w-10 h-10 rounded-xl bg-frost/10 flex items-center justify-center flex-shrink-0">
+                <Clock className="w-5 h-5 text-frost" />
               </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <Mail className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="font-semibold text-sky-900">Email</p>
-                <a
-                  href="mailto:info@bcclima.com"
-                  className="text-gray-text hover:text-sky-600 transition-colors"
-                >
-                  info@bcclima.com
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <Clock className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" />
-              <div>
-                <p className="font-semibold text-sky-900">Horario</p>
-                <p className="text-gray-text">Lun-Vie 8:00 AM - 6:00 PM</p>
-                <p className="text-gray-text">Sáb 8:00 AM - 1:00 PM</p>
-                <p className="text-orange text-sm font-medium mt-1">
+                <p className="font-semibold text-white font-[var(--font-syne)] text-sm">
+                  Horario
+                </p>
+                <p className="text-mist">Lun-Vie 8:00 AM - 6:00 PM</p>
+                <p className="text-mist">Sáb 8:00 AM - 1:00 PM</p>
+                <p className="text-ember text-sm font-medium mt-1">
                   Emergencias 24/7 para clientes activos
                 </p>
               </div>
             </div>
 
+            {/* WhatsApp CTA */}
             <div className="pt-4">
               <a
                 href="https://wa.me/18097429060?text=Hola%2C%20necesito%20una%20cotizaci%C3%B3n%20para%20aire%20acondicionado%20en%20Santiago."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-full flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#20bd5a] text-white font-semibold py-4 rounded-lg transition-colors text-lg"
+                className="w-full flex items-center justify-center gap-3 bg-wa-green hover:bg-wa-hover text-white font-semibold py-4 rounded-xl transition-all duration-300 text-lg hover:shadow-[0_0_30px_rgba(37,211,102,0.25)]"
               >
                 <svg
                   className="w-6 h-6"
